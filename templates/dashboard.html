@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Keystroke Logger</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white">
+
+    <!-- Dashboard Container -->
+    <div class="max-w-5xl mx-auto px-6 py-12 animate-[fadeInUp_0.8s_ease-out]">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-10">
+            <h1 class="text-3xl font-bold tracking-wide">
+                Analytics Dashboard
+            </h1>
+
+            <a href="/logger"
+               class="text-sm text-gray-300 hover:text-white transition">
+                ← Back to Logger
+            </a>
+        </div>
+
+        <!-- Chart Card -->
+        <div class="bg-white/10 backdrop-blur-xl
+                    border border-white/20
+                    rounded-2xl p-6 shadow-2xl">
+
+            <h2 class="text-lg font-semibold mb-4">
+                Keystroke Activity Overview
+            </h2>
+
+            <div class="bg-black/30 rounded-xl p-4">
+                <canvas id="chart"></canvas>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex flex-col sm:flex-row justify-between items-center mt-6 gap-4">
+
+                <p class="text-sm text-gray-400">
+                    Data shown is for demonstration purposes only.
+                </p>
+
+                <a href="/export"
+                   class="inline-flex items-center gap-2
+                          px-5 py-2.5 rounded-lg font-semibold
+                          bg-gradient-to-r from-blue-500 to-indigo-600
+                          hover:from-blue-600 hover:to-indigo-700
+                          transform hover:-translate-y-0.5
+                          hover:shadow-xl
+                          transition-all duration-300">
+                    Download CSV
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative mt-10 text-center text-sm text-gray-400">
+        <p class="mb-1">
+            © 2025 <span class="text-gray-200 font-medium">Roni Seikh</span>
+        </p>
+        <div class="flex justify-center gap-4">
+            <a href="https://github.com/Roni-Seikh" target="_blank"
+               class="hover:text-white transition-colors">
+                GitHub
+            </a>
+            <span class="text-gray-600">|</span>
+            <a href="https://www.linkedin.com/in/roniseikh" target="_blank"
+               class="hover:text-white transition-colors">
+                LinkedIn
+            </a>
+        </div>
+    </footer>
+
+    <!-- Chart -->
+    <script>
+        fetch("/export")
+        .then(() => {
+            const ctx = document.getElementById("chart");
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["Keys Logged"],
+                    datasets: [{
+                        data: [100],
+                        backgroundColor: "rgba(59, 130, 246, 0.8)",
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: "#cbd5f5" }
+                        },
+                        x: {
+                            ticks: { color: "#cbd5f5" }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keystroke Logger</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white">
+
+    <!-- Container -->
+    <div class="max-w-4xl mx-auto px-6 py-12 animate-[fadeIn_0.8s_ease-out]">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-10">
+            <h1 class="text-3xl font-bold tracking-wide">
+                Keystroke Logger
+            </h1>
+
+            <div class="space-x-4 text-sm">
+                <a href="/dashboard" class="text-blue-400 hover:text-blue-300 transition">
+                    Dashboard
+                </a>
+                <a href="/logout" class="text-red-400 hover:text-red-300 transition">
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-xl">
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-6">
+
+                <!-- Toggle Button -->
+                <button
+                    onclick="toggleLogging()"
+                    class="px-6 py-3 rounded-xl font-semibold
+                           bg-gradient-to-r from-green-500 to-emerald-600
+                           hover:from-green-600 hover:to-emerald-700
+                           transform hover:-translate-y-0.5
+                           hover:shadow-2xl
+                           transition-all duration-300"
+                >
+                    Start / Stop Logging
+                </button>
+
+                <!-- Status -->
+                <div class="text-lg font-semibold">
+                    Status:
+                    <span id="status" class="ml-2 text-red-400">
+                        Logging OFF
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- Text Area -->
+            <textarea
+                id="inputBox"
+                placeholder="Start typing here..."
+                class="w-full h-48 p-4 rounded-xl
+                       bg-black/30 text-white
+                       border border-white/20
+                       placeholder-gray-400
+                       focus:outline-none focus:ring-2 focus:ring-blue-500
+                       transition-all duration-300"
+            ></textarea>
+
+            <!-- Info Text -->
+            <p class="mt-4 text-sm text-gray-400">
+                Keystrokes are captured only within this text area for educational purposes.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative mt-10 text-center text-sm text-gray-400">
+        <p class="mb-1">
+            © 2025 <span class="text-gray-200 font-medium">Roni Seikh</span>
+        </p>
+        <div class="flex justify-center gap-4">
+            <a href="https://github.com/Roni-Seikh" target="_blank"
+               class="hover:text-white transition-colors">
+                GitHub
+            </a>
+            <span class="text-gray-600">|</span>
+            <a href="https://www.linkedin.com/in/roniseikh" target="_blank"
+               class="hover:text-white transition-colors">
+                LinkedIn
+            </a>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="/static/script.js"></script>
+
+</body>
+</html>

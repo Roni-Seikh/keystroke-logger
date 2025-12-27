@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Keystroke Logging Demo</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-[100dvh] flex flex-col items-center justify-center px-4
+             bg-gradient-to-br from-slate-900 via-gray-900 to-black
+             overflow-x-hidden">
+
+    <!-- Background Glow -->
+    <div class="absolute inset-0 pointer-events-none
+                bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.15),transparent_60%)]">
+    </div>
+
+    <!-- Login Card -->
+    <div class="relative w-full max-w-md p-6 sm:p-8 rounded-2xl
+                bg-white/10 backdrop-blur-xl
+                border border-white/20
+                shadow-2xl
+                animate-[fadeInUp_0.8s_ease-out]">
+
+        <!-- Title -->
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-1 tracking-wide">
+            Keystroke Logger
+        </h2>
+
+        <p class="text-center text-gray-300 mb-6 sm:mb-8 text-sm">
+            Secure Login • Educational Demonstration
+        </p>
+
+        <!-- Form -->
+        <form method="POST" action="/" class="space-y-5">
+
+            <!-- Username -->
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1">
+                    Username
+                </label>
+                <input
+                    type="text"
+                    name="username"
+                    required
+                    autocomplete="username"
+                    placeholder="Enter username"
+                    aria-label="Username"
+                    class="w-full px-4 py-2.5 rounded-lg
+                           bg-black/30 text-white
+                           border border-white/20
+                           placeholder-gray-400
+                           focus:outline-none focus:ring-2 focus:ring-blue-500
+                           transition-all duration-300
+                           hover:border-blue-400"
+                >
+            </div>
+
+            <!-- Password -->
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1">
+                    Password
+                </label>
+                <input
+                    type="password"
+                    name="password"
+                    required
+                    autocomplete="current-password"
+                    placeholder="Enter password"
+                    aria-label="Password"
+                    class="w-full px-4 py-2.5 rounded-lg
+                           bg-black/30 text-white
+                           border border-white/20
+                           placeholder-gray-400
+                           focus:outline-none focus:ring-2 focus:ring-blue-500
+                           transition-all duration-300
+                           hover:border-blue-400"
+                >
+            </div>
+
+            <!-- Login Button -->
+            <button
+                type="submit"
+                class="w-full py-3 rounded-lg font-semibold text-white
+                       bg-gradient-to-r from-blue-500 to-indigo-600
+                       hover:from-blue-600 hover:to-indigo-700
+                       active:scale-[0.98]
+                       transform
+                       hover:shadow-xl
+                       transition-all duration-300">
+                Login
+            </button>
+
+        </form>
+
+        <!-- Demo Credentials -->
+        <div class="mt-6 text-center text-xs text-gray-400">
+            Demo Access<br>
+            <span class="font-medium text-gray-200 tracking-wide">
+                admin / password123
+            </span>
+        </div>
+    </div>
+
+    <!-- Footer (hidden on small screens) -->
+    <footer class="hidden sm:block relative mt-8 text-center text-sm text-gray-400">
+        <p class="mb-1">
+            © 2025 <span class="text-gray-200 font-medium">Roni Seikh</span>
+        </p>
+        <div class="flex justify-center gap-4">
+            <a href="https://github.com/Roni-Seikh" target="_blank"
+               class="hover:text-white transition-colors">
+                GitHub
+            </a>
+            <span class="text-gray-600">|</span>
+            <a href="https://www.linkedin.com/in/roniseikh" target="_blank"
+               class="hover:text-white transition-colors">
+                LinkedIn
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
