@@ -2,7 +2,18 @@
 **Cybersecurity with Generative AI – Internship Project**
 
 ---
+## 🌐 Live Demo
 
+You can access the **live deployed version** of this project here:
+
+🔗 **Live Application:**  
+https://keystroke-logger-dayj.onrender.com/
+
+> ⚠️ **Note:**  
+> - The application may take a few seconds to load initially due to free-tier cloud hosting (Render cold start).  
+> - All keystroke logging is **consent-based, visible, and limited to the web interface only**.
+
+---
 ## 📌 Project Overview
 
 This project is a **Web-Based Keystroke Logging Demonstration System** developed as part of the **Edunet Foundation – AICTE Internship** under the **VOIS for Tech Program on Cybersecurity with Generative AI**.
